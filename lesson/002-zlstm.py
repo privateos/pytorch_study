@@ -27,13 +27,13 @@ class Gate(nn.Module):
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from base.lstm import LSTM
+from base.zlstm import ZLSTM
 
 class Model(nn.Module):
     def __init__(self,input_size,hid_size,n_classs) -> None:
         super(Model,self).__init__()
         # self.lstm = nn.LSTM(input_size,hid_size,batch_first=True)
-        self.lstm = LSTM(input_size,hid_size)
+        self.lstm = ZLSTM(input_size,hid_size)
 
         self.fc = nn.Linear(hid_size,n_classs)
 
